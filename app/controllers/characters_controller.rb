@@ -11,8 +11,8 @@ class CharactersController < ApplicationController
 
     def update
         character = Character.find_by(id: params[:id])
-        character.update
-        render json: character.to_json
+        character.update(character_params)
+        render json: character.to_json(default)
     end
 
     def create
@@ -29,6 +29,12 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :background, :gender, :race, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :picture)
+        params.require(:character).permit(:name, :background, :gender, :race, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :picture, :user_id)
+    end
+
+    def default
+        {
+        :except => [:created_at, :updated_at]
+        }        
     end
 end
