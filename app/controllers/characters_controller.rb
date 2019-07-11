@@ -17,7 +17,11 @@ class CharactersController < ApplicationController
 
     def create
         character = Character.create(character_params)
-        render json: character
+        if character.valid?
+            render json: character
+        else 
+            render json: {message: "not complete"}
+        end
     end
 
     def destroy
