@@ -9,12 +9,12 @@ require 'faker'
 User.destroy_all
 Character.destroy_all
 
-u1 = User.create(username: "Peter")
-u2 = User.create(username: "Junaid")
-u3 = User.create(username: "Sean")
-u4 = User.create(username: "Natany")
-u5 = User.create(username: "Nick")
-u6 = User.create(username: "Errol")
+u1 = User.create(username: "Peter", password_digest: "password")
+u2 = User.create(username: "Junaid", password_digest: "password")
+u3 = User.create(username: "Sean", password_digest: "password")
+u4 = User.create(username: "Natany", password_digest: "password")
+u5 = User.create(username: "Nick", password_digest: "password")
+u6 = User.create(username: "Errol", password_digest: "password")
 
 char1 = Character.create!(name: "Krusk", gender: "male", background: "Gladiator", race: "half-orc", strength: 13, dexterity: 11, constitution: 10, intelligence: 7, wisdom: 8, charisma: 4, picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk16ltQOHaU30iGu3BKGPDlAExA9VNwKRSE4z8YPC2ecbpnGvL", user_id: u1.id)
 char2 = Character.create!(name: "Gimble", gender: "male", background: "Entertainer", race: "bard", strength: 3, dexterity: 7, constitution: 8, intelligence: 13, wisdom: 12, charisma: 15, picture: "https://i1.wp.com/www.allthingsdnd.com/wp-content/uploads/2018/03/GnomeBard.png?fit=822%2C1089&ssl=1",  user_id: u2.id)

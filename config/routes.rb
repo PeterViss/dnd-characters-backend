@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     get '/characters/:id' => 'characters#show'
     patch '/characters/:id' => 'characters#update'
     post '/characters' => 'characters#create'
-    get '/users/:username' => 'users#show'
+    get '/users/:username/:password_digest' => 'users#show'
     delete 'characters/:id' => 'characters#destroy'
 end
