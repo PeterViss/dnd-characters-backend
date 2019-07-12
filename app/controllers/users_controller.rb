@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(password_digest: params[:password_digest])
+        user = User.find_by(username: params[:username])
         if user
             render json: user.to_json(default)
         else
