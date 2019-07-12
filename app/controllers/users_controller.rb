@@ -5,19 +5,28 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(username: params[:username])
-        if user
+        user = User.find_by(username: params[:username], password_digest: params[:password_digest])
             render json: user.to_json(default)
-        else
-            render json: { message: "User does not exist" }
-        end
+       
+    
     end
 
+     
+    def create
+        
+        user = User.create(user_params)
+        if user.valid?
+            render json: user
+        else 
+            render json: {message: "Please enter a unique Username!"}
+        end  
+    end
+     
 
     private
 
     def user_params
-        params.require(:user).permit(:username)
+        params.require(:user).permit(:username, :password_digest)
     end
 
     def default

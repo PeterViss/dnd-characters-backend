@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     patch '/characters/:id' => 'characters#update'
     post '/characters' => 'characters#create'
     get '/users/:username/:password_digest' => 'users#show'
+    post '/users' => 'users#create'
     delete 'characters/:id' => 'characters#destroy'
 end
