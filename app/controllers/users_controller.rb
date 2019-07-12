@@ -16,9 +16,10 @@ class UsersController < ApplicationController
         
         user = User.new(user_params)
         if user.valid?
-            user.save
+            user.save!
             render json: user
         else 
+            user.destroy
             render json: {message: "Please enter a unique Username!"}
         end  
     end
